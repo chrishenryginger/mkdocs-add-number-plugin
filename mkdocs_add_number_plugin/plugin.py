@@ -116,7 +116,7 @@ class AddNumberPlugin(BasePlugin):
         files_to_remove = [file for file in files_str if
                            self._is_exclude(file) and not self._is_include(
                                file)]
-        self.files_str = [file for file in files_str if
+        self.files_str = [os.path.normpath(file) for file in files_str if
                           file not in files_to_remove]
 
         return files
